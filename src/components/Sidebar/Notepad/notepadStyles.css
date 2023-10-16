@@ -1,0 +1,163 @@
+.notepad-container-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 50%;
+    border: 1px solid var(--pal-white);
+    border-radius: 3px;
+    padding: 2px;
+}
+
+.notepad-container {
+    background-color: var(--pal-white);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    gap: 5px;
+    padding: 5px;
+}
+
+.reduced-nav-padding {
+    padding: 5px 10px 5px 10px !important;
+}
+
+.notepad-item-list {
+    display: flex;
+    flex-direction: column;
+    padding: 3px;
+    flex: 1;
+    background-color: var(--pal-offwhite);
+    overflow-y: auto;
+    gap: 3px;
+    white-space: nowrap;
+    max-height: 322px;
+}
+
+.notepad-item {
+    display: flex;
+    background-color: var(--pal-white);
+}
+
+.notepad-item:hover {
+    background-color: var(--pal-offwhite-hover);
+}
+
+.notepad::-webkit-scrollbar {
+    width: 5px;
+}
+
+.notepad::-webkit-scrollbar-track {
+    background: inherit;
+}
+
+.notepad::-webkit-scrollbar-thumb {
+    background-color: var(--pal-gray);
+    border-radius: 10px;
+}
+
+.notepad-text-area {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex-grow: 1;
+}
+
+.notepad {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}
+
+.notepad-view {
+    display: flex;
+    width: 100%;
+    word-break: break-all;
+    overflow-wrap: break-word;
+    overflow-y: auto;
+    max-height: 243px;
+    white-space: break-spaces;
+}
+
+.notepad-note-title {
+    border-bottom: 1px solid var(--pal-offwhite);
+}
+
+.notepad-controls {
+    display: flex;
+    background-color: var(--pal-offwhite);
+    border-radius: 5px;
+    margin-top: auto;
+    width: 100%;
+    height: 20%;
+    align-items: center;
+    justify-content: center;
+}
+
+.notepad-item-list::-webkit-scrollbar {
+    width: 5px;
+}
+
+.notepad-item-list::-webkit-scrollbar-track {
+    background: inherit;
+}
+
+.notepad-item-list::-webkit-scrollbar-thumb {
+    background-color: var(--pal-gray);
+    border-radius: 10px;
+}
+
+.notepad-item-options {
+    display: flex;
+    margin-left: auto;
+    gap: 5px;
+}
+
+.notepad-item-listing {
+    max-width: 75%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.notepad-item-listing:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.edit-hover:hover {
+    cursor: pointer;
+    color: var(--pal-white);
+}
+
+.delete-hover:hover {
+    cursor: pointer;
+    color: maroon;
+}
+
+.notepad-controls-add-button-container {
+    display: flex;
+    width: 100%;
+    border-radius: 3px;
+    background-color: var(--pal-white);
+    gap: 5px;
+    padding: 5px;
+}
+
+.font-white {
+    color: var(--pal-white)
+}
+
+.icon-padding {
+    padding-right: 2px;
+}
+
+.reduced-textbox {
+    margin: 0;
+    padding: 1px 5px 1px 5px !important;
+}
+
+.notepad-note-name {
+    padding: 5px 0px 5px 0px;
+}

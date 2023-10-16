@@ -1,0 +1,54 @@
+.player-info-section-wrapper {
+    border: 1px solid var(--pal-offwhite);
+    border-radius: 5px;
+    display: flex;
+    width: 100%;
+    background-color: var(--pal-white);
+    padding: 3px;
+    gap: 3px;
+    justify-content: center;
+}
+
+.player-info-grid-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    background-color: var(--pal-offwhite);
+    width: 300px;
+}
+
+.player-info-grid-item {
+    padding: 3px;
+    display: flex;
+    gap: 5px;
+}
+
+.player-section-edit-hover:hover {
+    cursor: pointer;
+    color: var(--pal-gray);
+}
+
+.player-section-edit-tab {
+    display: flex;
+    height: fit-content;
+    border-radius: 0px 5px 5px 0px;
+    background-color: var(--pal-offwhite);
+}
+
+.player-info-label {
+    white-space: nowrap;
+}
+
+.player-info-editable-field {
+    display: flex;
+    flex: 1;
+}
+
+.reduced-textbox {
+    margin: 0;
+    padding: 1px 5px 1px 5px !important;
+}
+
+.player-info-invalid {
+    color: red;
+}

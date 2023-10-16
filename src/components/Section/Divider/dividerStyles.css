@@ -1,0 +1,45 @@
+hr.line-break-white {
+  overflow: visible;
+  /* For IE */
+  padding: 0;
+  border: none;
+  border-top: medium double var(--pal-black);
+  color: var(--pal-gray);
+  text-align: center;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  height: 0;
+}
+
+hr.line-break-white:after {
+  content: "§";
+  display: inline-block;
+  position: relative;
+  top: -0.7em;
+  font-size: 1.5em;
+  padding: 0 0.25em;
+  background: var(--pal-white);
+}
+
+hr.line-break-offwhite {
+  overflow: visible;
+  /* For IE */
+  padding: 0;
+  border: none;
+  border-top: medium double var(--pal-black);
+  color: var(--pal-gray);
+  text-align: center;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  height: 0;
+}
+
+hr.line-break-offwhite:after {
+  content: "§";
+  display: inline-block;
+  position: relative;
+  top: -0.7em;
+  font-size: 1.5em;
+  padding: 0 0.25em;
+  background: var(--pal-offwhite);
+}

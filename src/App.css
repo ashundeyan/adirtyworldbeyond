@@ -1,0 +1,119 @@
+:root {
+  --pal-white: white;
+  --pal-offwhite: whitesmoke;
+  --pal-offwhite-hover: rgb(225,225,225);
+  --pal-gray: gray;
+  --pal-grayer: rgb(105,105,105);
+  --pal-black: black;
+
+  --pal-border: lightgray;
+}
+
+@font-face {
+  font-family: 'Interstate';
+  src: local('Interstate'),
+       url('./fonts/Interstate.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'DecoTechTL';
+  src: local('DecoTechTL'),
+       url('./fonts/DecoTechTL.ttf') format('truetype')
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+
+#root{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.site-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.main {
+  display: flex;
+  background-color: var(--pal-white);
+  height: 100%;
+  width: 100%;
+}
+
+.main-inner{
+  display: flex;
+  padding: 20px;
+  flex: 1;
+  height: 100%;
+}
+
+.main-inner-sheet {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;;
+  background-color: var(--pal-white);
+  padding: 15px;
+  gap: 5px;
+  overflow-y: auto;
+}
+
+.main-inner-sheet::-webkit-scrollbar {
+  width: 10px;
+}
+
+.main-inner-sheet::-webkit-scrollbar-track {
+  background: inherit;
+}
+
+.main-inner-sheet::-webkit-scrollbar-thumb {
+  background-color:var(--pal-gray);
+  border-radius: 10px;
+}
+
+.deco-font{
+  font-family: 'DecoTechTL';
+  font-size: 2em;
+}
+
+.overlined{
+  text-decoration: overline;
+}
+
+.underlined{
+  text-decoration: underline;
+}
+
+.form-check-inline{
+  margin-right: 0;
+}
+
+.form-check-input:checked {
+  background-color: #000 !important;
+  border-color: #000 !important;
+}
+
+.btn-theme {
+  background-color: var(--pal-gray) !important;
+  border: 1px solid var(--pal-grayer) !important;
+  color: var(--pal-white) !important;
+}
+
+.btn-theme:hover {
+  background-color: var(--pal-grayer) !important;
+}
+
+.btn-theme:active {
+  background-color: var(--pal-black) !important;
+  color: var(--pal-white) !important;
+
+}

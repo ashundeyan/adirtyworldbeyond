@@ -1,0 +1,35 @@
+.quality-block-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+.quality-block-inner {
+    display: column;
+}
+
+.quality-block-stat-container {
+    display: flex;
+    gap: 5px;
+}
+
+.quality-block-button {
+    width: 20px;
+    height: 20px;
+}
+
+.quality-block-shifted {
+    padding-left: 115px;
+}
+
+.quality-block-stats-overlapping .form-check-input.quality-block-button:checked {
+    background-color: red !important;
+    border-color: red !important;
+}
+
+.quality-is-profession-affected {
+    color: rgb(0, 86, 185);
+}

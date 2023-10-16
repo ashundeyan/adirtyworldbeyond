@@ -1,0 +1,34 @@
+.identity-block-block {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    gap: 25px;
+    background-color: var(--pal-offwhite);
+    border-radius: 5px;
+}
+
+.identity-block-inner {
+    display: flex;
+    flex-direction: column;
+}
+
+.identity-block-stat-container {
+    display: flex;
+    gap: 10px;
+}
+
+.identity-block-button {
+    width: 25px;
+    height: 25px;
+    gap: 5px;
+}
+
+.identity-block-shifted {
+    padding-left: 70px;
+}
+
+.identity-block-stats-overlapping .form-check-input.identity-block-button:checked {
+    background-color: red !important;
+    border-color: red !important;
+}

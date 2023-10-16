@@ -1,0 +1,220 @@
+.specialties-container-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 50%;
+    border: 1px solid var(--pal-white);
+    border-radius: 3px;
+    padding: 2px;
+
+}
+
+.specialties-container {
+    background-color: var(--pal-white);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    gap: 5px;
+    padding: 5px;
+}
+
+.specialties-container-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: gray;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.specialties-item-list {
+    display: flex;
+    flex-direction: column;
+    padding: 3px;
+    flex: 1;
+    background-color: var(--pal-offwhite);
+    overflow-y: auto;
+    gap: 3px;
+    white-space: nowrap;
+    max-height: 322px;
+}
+
+.specialties-item-list-view-edit {
+    display: flex;
+    flex-direction: column;
+    padding: 3px;
+    flex: 1;
+    background-color: var(--pal-offwhite);
+    gap: 3px;
+    overflow-y: auto;
+}
+
+.specialties-item-list::-webkit-scrollbar {
+    width: 5px;
+}
+
+.specialties-item-list::-webkit-scrollbar-track {
+    background: inherit;
+}
+
+.specialties-item-list::-webkit-scrollbar-thumb {
+    background-color: var(--pal-gray);
+    border-radius: 10px;
+}
+
+.specialties-item {
+    display: flex;
+    background-color: var(--pal-white);
+}
+
+.specialties-item:hover {
+    background-color: var(--pal-offwhite-hover);
+}
+
+.specialties-item-options {
+    display: flex;
+    margin-left: auto;
+    gap: 5px;
+}
+
+.specialties-item-listing {
+    max-width: 75%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.specialties-item-listing:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.edit-hover:hover {
+    cursor: pointer;
+    color: var(--pal-white);
+}
+
+.delete-hover:hover {
+    cursor: pointer;
+    color: maroon;
+}
+
+.specialties-controls {
+    display: flex;
+    background-color: var(--pal-offwhite);
+    border-radius: 5px;
+    margin-top: auto;
+    width: 100%;
+    height: 20%;
+    align-items: center;
+    justify-content: center;
+}
+
+.specialties-controls-add-button-container {
+    display: flex;
+    width: 100%;
+    border-radius: 3px;
+    background-color: var(--pal-white);
+    gap: 5px;
+    padding: 5px;
+}
+
+.font-white {
+    color: var(--pal-white)
+}
+
+.specialties-view-edit-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.specialties-view-edit-container-item {
+    display: flex;
+    padding: 0px 0px 5px 0px;
+    width: 100%;
+    word-break: break-all;
+    overflow-wrap: break-word;
+    max-height: 245px;
+}
+
+.description-box::-webkit-scrollbar {
+    width: 5px;
+}
+
+.description-box::-webkit-scrollbar-track {
+    background: inherit;
+}
+
+.description-box::-webkit-scrollbar-thumb {
+    background-color: var(--pal-gray);
+    border-radius: 10px;
+}
+
+/* editable */
+.description-box-editable::-webkit-scrollbar {
+    width: 5px;
+}
+
+.description-box-editable::-webkit-scrollbar-track {
+    background: inherit;
+}
+
+.description-box-editable::-webkit-scrollbar-thumb {
+    background-color: var(--pal-gray);
+    border-radius: 10px;
+}
+
+.container-item-bottom-border {
+    border-bottom: 1px solid var(--pal-white);
+}
+
+.view-edit-item-centered {
+    align-items: center;
+    justify-content: center;
+}
+
+.specialties-view-edit-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.specialties-view-edit-container-effects {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 0px 5px 0px;
+    border-bottom: 1px solid var(--pal-white);
+}
+
+.specialties-view-edit-container-description {
+    display: flex;
+    flex-direction: column;
+}
+
+.specialties-view-edit-item-centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.description-box {
+    display: flex;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.description-box-editable {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}
+
+.has-width-mod {
+    color: maroon;
+}
+
+.has-width-mod-icon {
+    display: flex;
+    gap: 2px;
+}

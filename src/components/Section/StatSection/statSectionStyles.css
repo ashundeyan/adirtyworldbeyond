@@ -1,0 +1,9 @@
+.stat-section-wrapper{
+    border: 1px solid var(--pal-offwhite);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    padding: 5px;
+}
