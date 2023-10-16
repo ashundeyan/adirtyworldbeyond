@@ -73,8 +73,7 @@
 .notepad-view {
     display: flex;
     width: 100%;
-    word-break: break-all;
-    overflow-wrap: break-word;
+    word-break: break-word;
     overflow-y: auto;
     max-height: 243px;
     white-space: break-spaces;

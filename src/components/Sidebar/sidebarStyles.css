@@ -1,8 +1,9 @@
 .sidebar-container {
   display: flex;
+  flex-direction: row;
   height: 100%;
   width: 20%;
-  min-width: 225px;
+  min-width: 320px;
 }
 
 .sidebar {
@@ -22,11 +23,6 @@
   gap: 5px;
   height: 100%;
   width: 18%;
-}
-
-.sidebar-container {
-  display: flex;
-  flex-direction: row;
 }
 
 .sidebar-tab-button-container {
