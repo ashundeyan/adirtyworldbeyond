@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { TPlayerInfo } from "../../../models/CharacterSheet"
 import "./playerInfoSectionStyles.css"
 import { TAvailablePoints } from "../../../constants/Types"
-import { PROFESSIONS, ProfessionIdLookup } from "../../../constants/Constants"
+import { PROFESSIONS } from "../../../constants/Constants"
 
 type PlayerInfoSectionProps = {
   playerInfo: TPlayerInfo
@@ -32,31 +32,31 @@ export function PlayerInfoSection({ playerInfo, combatPotential, weaponBonus, up
   }
 
   function handlePlayerNameChange(e: React.ChangeEvent<HTMLInputElement>) {
-    let currInfo = { ...currPlayerInfo }
+    const currInfo = { ...currPlayerInfo }
     currInfo.playerName = e.target.value
     setCurrPlayerInfo(currInfo)
   }
 
   function handleCharacterNameChange(e: React.ChangeEvent<HTMLInputElement>) {
-    let currInfo = { ...currPlayerInfo }
+    const currInfo = { ...currPlayerInfo }
     currInfo.characterName = e.target.value
     setCurrPlayerInfo(currInfo)
   }
 
   function handleGameNameChange(e: React.ChangeEvent<HTMLInputElement>) {
-    let currInfo = { ...currPlayerInfo }
+    const currInfo = { ...currPlayerInfo }
     currInfo.gameName = e.target.value
     setCurrPlayerInfo(currInfo)
   }
 
   function handleProfessionChange(e: React.ChangeEvent<HTMLSelectElement>) {
-    let currInfo = { ...currPlayerInfo }
+    const currInfo = { ...currPlayerInfo }
     currInfo.profession = PROFESSIONS.find(x => x.id === parseInt(e.target.value))!
     setCurrPlayerInfo(currInfo)
   }
 
   function sendUpdatedInfo() {
-    let updatedInfo: TPlayerInfo = {
+    const updatedInfo: TPlayerInfo = {
       playerName: currPlayerInfo.playerName,
       characterName: currPlayerInfo.characterName,
       gameName: currPlayerInfo.gameName,

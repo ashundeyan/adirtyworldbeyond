@@ -35,11 +35,10 @@ export function Sidebar({ updateSheetNotes, updateSheetInven, updateSheetSpecial
         setActiveTab(selelectedTab)
     }
 
-    const { openFilePicker, filesContent, loading, clear } = useFilePicker({
+    const { openFilePicker } = useFilePicker({
         accept: '.json',
         multiple: false,
         onFilesSuccessfullySelected: ({
-            plainFiles,
             filesContent
         }: {
             plainFiles: File[];
@@ -48,7 +47,7 @@ export function Sidebar({ updateSheetNotes, updateSheetInven, updateSheetSpecial
             console.log('success');
             importCharacterSheet(filesContent[0])
         },
-        onFilesRejected: ({ errors }) => {
+        onFilesRejected: () => {
             console.log('failure')
         }
     })

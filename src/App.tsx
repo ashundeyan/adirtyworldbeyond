@@ -7,7 +7,7 @@ import { Sidebar } from './components/Sidebar/Sidebar'
 import { BASE_POINT_POOL, ContentBgColorsLookup, IDENTITY_POINT_COST, IdentityIdLookup, QUALITY_POINT_COST, QualityIdLookup, SPECIALITY_POINT_COST, StatTypeLookup } from './constants/Constants'
 import { generateStatBlocks } from './constants/StatBlock'
 import { CharacterSheet, TPlayerInfo } from './models/CharacterSheet'
-import { testCharacterSheet, uninitCharacterSheet } from './constants/UninitializedCharacterSheet'
+import { uninitCharacterSheet } from './constants/UninitializedCharacterSheet'
 import { InventoryItem } from './models/InventoryItem'
 import { Note } from './models/Note'
 import React from 'react'
@@ -43,7 +43,7 @@ function App() {
 
   function importSheetFromLocal() {
     try {
-      let res = readSheetFromLocal()
+      const res = readSheetFromLocal()
       if (res.success) {
         setCharacterSheet(res.retrievedSheet!)
         forceStatRerender()
@@ -57,12 +57,12 @@ function App() {
   }
 
   function generateSecretAndSeverity() {
-    let secret = characterSheet.playerTrackings.secret
+    const secret = characterSheet.playerTrackings.secret
     return `${secret.name} (${secret.severity})`
   }
 
   function generateSpecialtyList() {
-    let specialties = characterSheet.playerTrackings.specialties;
+    const specialties = characterSheet.playerTrackings.specialties;
     let list = ""
 
     if (specialties.length === 0) {
@@ -85,10 +85,10 @@ function App() {
   }
 
   function calculateCombatPotential() {
-    let vigor = characterSheet.playerStats.identities.find(x => x.id === IdentityIdLookup.VIGOR)?.value ?? 0
-    let grace = characterSheet.playerStats.identities.find(x => x.id === IdentityIdLookup.GRACE)?.value ?? 0
-    let courage = characterSheet.playerStats.qualities.find(x => x.id === QualityIdLookup.COURAGE)?.value ?? 0
-    let wrath = characterSheet.playerStats.qualities.find(x => x.id === QualityIdLookup.WRATH)?.value ?? 0
+    const vigor = characterSheet.playerStats.identities.find(x => x.id === IdentityIdLookup.VIGOR)?.value ?? 0
+    const grace = characterSheet.playerStats.identities.find(x => x.id === IdentityIdLookup.GRACE)?.value ?? 0
+    const courage = characterSheet.playerStats.qualities.find(x => x.id === QualityIdLookup.COURAGE)?.value ?? 0
+    const wrath = characterSheet.playerStats.qualities.find(x => x.id === QualityIdLookup.WRATH)?.value ?? 0
 
     return vigor + grace + courage + wrath
   }
@@ -98,16 +98,16 @@ function App() {
   }
 
   function calculateAvailablePoints(): TAvailablePoints {
-    let pointPool = BASE_POINT_POOL + (characterSheet.playerTrackings.secret.severity ?? 0)
+    const pointPool = BASE_POINT_POOL + (characterSheet.playerTrackings.secret.severity ?? 0)
 
-    let spentIdentity = (characterSheet.playerStats.identities.reduce((acc, x) => acc + (x.value), 0)) * IDENTITY_POINT_COST;
-    let spentQuality = (characterSheet.playerStats.qualities.reduce((acc, x) => acc + (x.value), 0)) * QUALITY_POINT_COST;
-    let spentSpecialties = (characterSheet.playerTrackings.specialties.length) * SPECIALITY_POINT_COST;
+    const spentIdentity = (characterSheet.playerStats.identities.reduce((acc, x) => acc + (x.value), 0)) * IDENTITY_POINT_COST;
+    const spentQuality = (characterSheet.playerStats.qualities.reduce((acc, x) => acc + (x.value), 0)) * QUALITY_POINT_COST;
+    const spentSpecialties = (characterSheet.playerTrackings.specialties.length) * SPECIALITY_POINT_COST;
 
     let totalSpent = spentIdentity + spentQuality + spentSpecialties
 
     //you get a free vigor
-    let vigor = characterSheet.playerStats.identities.find(x => x.id === IdentityIdLookup.VIGOR)?.value ?? 0
+    const vigor = characterSheet.playerStats.identities.find(x => x.id === IdentityIdLookup.VIGOR)?.value ?? 0
     if (vigor > 0) {
       totalSpent -= IDENTITY_POINT_COST
     }
@@ -131,45 +131,45 @@ function App() {
   }
 
   function updateSheetStat(statType: StatTypeLookup, statId: number, updatedValue: number) {
-    let sheet = { ...characterSheet }
+    const sheet = { ...characterSheet }
 
     if (statType === StatTypeLookup.IDENTITY) {
-      let idx = sheet.playerStats.identities.findIndex(x => x.id === statId)
+      const idx = sheet.playerStats.identities.findIndex(x => x.id === statId)
       sheet.playerStats.identities[idx].value = updatedValue
     }
     else if (statType === StatTypeLookup.QUALITY) {
-      let idx = sheet.playerStats.qualities.findIndex(x => x.id === statId)
+      const idx = sheet.playerStats.qualities.findIndex(x => x.id === statId)
       sheet.playerStats.qualities[idx].value = updatedValue
     }
     setCharacterSheet(sheet)
   }
 
   function updateSheetPlayerInfo(updatedInfo: TPlayerInfo) {
-    let sheet = { ...characterSheet }
+    const sheet = { ...characterSheet }
     sheet.playerInfo = updatedInfo
     setCharacterSheet(sheet)
   }
 
   function updateSheetPlayerNotes(updatedNotes: Note[]) {
-    let sheet = { ...characterSheet }
+    const sheet = { ...characterSheet }
     sheet.playerTrackings.notes = updatedNotes
     setCharacterSheet(sheet)
   }
 
   function updateSheetPlayerInven(updatedInven: InventoryItem[]) {
-    let sheet = { ...characterSheet }
+    const sheet = { ...characterSheet }
     sheet.playerTrackings.inventory = updatedInven
     setCharacterSheet(sheet)
   }
 
   function updateSheetPlayerSecret(updatedSecret: Secret) {
-    let sheet = { ...characterSheet }
+    const sheet = { ...characterSheet }
     sheet.playerTrackings.secret = updatedSecret
     setCharacterSheet(sheet)
   }
 
   function updateSheetPlayerSpecialties(updatedSpecialties: Specialty[]) {
-    let sheet = { ...characterSheet }
+    const sheet = { ...characterSheet }
     sheet.playerTrackings.specialties = updatedSpecialties
     setCharacterSheet(sheet)
   }

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import "./notepadStyles.css"
-import { TPlayerTrackings } from "../../../models/CharacterSheet";
 import { Note } from "../../../models/Note";
 import { textNotEmpty } from "../../../utilities/UtilityFunctions";
 
@@ -14,7 +13,7 @@ export function Notepad({ updateSheetNotes, playerNotes }: NotepadProps) {
     enum TabsLookup { NOTES, CURRENT }
     const [currentTab, setCurrentTab] = useState(TabsLookup.NOTES);
     const [editMode, setEditMode] = useState(false)
-    const [viewMode, setViewMode] = useState(false)
+    const [, setViewMode] = useState(false)
     const [currentNote, setCurrentNote] = useState<number | undefined>()
     const [notePendingChanges, setNotePendingChanges] = useState<Note | undefined>()
     const [isSaveValid, setIsSaveValid] = useState(true)
@@ -28,7 +27,7 @@ export function Notepad({ updateSheetNotes, playerNotes }: NotepadProps) {
     }, [notePendingChanges?.noteTitle])
 
     function addNewNote() {
-        let updatedNotes = [...playerNotes]
+        const updatedNotes = [...playerNotes]
         updatedNotes.push({ noteTitle: "New Note" })
         updateSheetNotes(updatedNotes)
     }
@@ -53,7 +52,7 @@ export function Notepad({ updateSheetNotes, playerNotes }: NotepadProps) {
     }
 
     function saveEdits() {
-        let updatedNotes = [...playerNotes]
+        const updatedNotes = [...playerNotes]
         updatedNotes[currentNote!] = notePendingChanges!
         updateSheetNotes(updatedNotes)
         setViewMode(true)
@@ -61,7 +60,7 @@ export function Notepad({ updateSheetNotes, playerNotes }: NotepadProps) {
     }
 
     function deleteNote(idx: number) {
-        let updatedNotes = [...playerNotes]
+        const updatedNotes = [...playerNotes]
         updatedNotes.splice(idx, 1)
         updateSheetNotes(updatedNotes)
     }

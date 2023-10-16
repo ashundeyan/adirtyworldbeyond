@@ -35,12 +35,12 @@ export function IdentityBlock({ mapFn, leftIdentity, rightIdentity, updateSheetS
   }
 
   function hasOverlap(arr1: boolean[], arr2: boolean[]) {
-    let arr1ToNumeric: number[] = arr1.map(x => x ? 1 : 0)
-    let arr2ToNumeric: number[] = arr2.map(x => x ? 1 : 0)
-    let offset = 2;
+    const arr1ToNumeric: number[] = arr1.map(x => x ? 1 : 0)
+    const arr2ToNumeric: number[] = arr2.map(x => x ? 1 : 0)
+    const offset = 2;
 
-    let arr1Segment = arr1ToNumeric.slice(offset)
-    let arr2Segment = arr2ToNumeric.slice(0, -offset)
+    const arr1Segment = arr1ToNumeric.slice(offset)
+    const arr2Segment = arr2ToNumeric.slice(0, -offset)
 
     for (let i = 0; i < arr1.length; i++) {
       if (arr1Segment[i] === 1 && arr2Segment[i] === 1) {
@@ -64,9 +64,9 @@ export function IdentityBlock({ mapFn, leftIdentity, rightIdentity, updateSheetS
 
       for (let i = 0; i < leftIdentityTracking.length - 1; i++) {
         if (leftIdentityTracking[i] === true && leftIdentityTracking[i + 1] === false) {
-          let skip1 = i
-          let skip2 = i + 1
-          let arr = new Array<boolean>(5).fill(true);
+          const skip1 = i
+          const skip2 = i + 1
+          const arr = new Array<boolean>(5).fill(true);
           arr[skip1] = false
           arr[skip2] = false
           setTrackLeftIdentityDisabled(arr)
@@ -85,9 +85,9 @@ export function IdentityBlock({ mapFn, leftIdentity, rightIdentity, updateSheetS
       }
       for (let i = 0; i < rightIdentityTracking.length - 1; i++) {
         if (rightIdentityTracking[i] === false && rightIdentityTracking[i + 1] === true) {
-          let skip1 = i;
-          let skip2 = i + 1
-          let arr = new Array<boolean>(5).fill(true);
+          const skip1 = i;
+          const skip2 = i + 1
+          const arr = new Array<boolean>(5).fill(true);
           arr[skip1] = false
           arr[skip2] = false
           setTrackRightIdentityDisabled(arr)
@@ -111,10 +111,10 @@ export function IdentityBlock({ mapFn, leftIdentity, rightIdentity, updateSheetS
 
   function sendToStatSheet(position: number, arr: boolean[]) {
     if (position === 0) {
-      let updatedValue = arr.slice().filter(x => x).length;
+      const updatedValue = arr.slice().filter(x => x).length;
       updateSheetStat(StatTypeLookup.IDENTITY, leftIdentity?.id ?? -1, updatedValue)
     } else {
-      let updatedValue = arr.slice().filter(x => x).length;
+      const updatedValue = arr.slice().filter(x => x).length;
       updateSheetStat(StatTypeLookup.IDENTITY, rightIdentity?.id ?? -1, updatedValue)
     }
     return
@@ -123,28 +123,28 @@ export function IdentityBlock({ mapFn, leftIdentity, rightIdentity, updateSheetS
   function updateChecked(position: number, status: boolean) {
     if (position === 0) {
       if (status) {
-        let incremented = leftIdentityTracking.slice()
-        let idx = incremented.findLastIndex(x => x === true)
+        const incremented = leftIdentityTracking.slice()
+        const idx = incremented.findLastIndex(x => x === true)
         incremented[idx] = false
         setLeftIdentityTracking(incremented)
         sendToStatSheet(0, incremented)
       } else {
-        let incremented = leftIdentityTracking.slice()
-        let idx = incremented.findIndex(x => x === false)
+        const incremented = leftIdentityTracking.slice()
+        const idx = incremented.findIndex(x => x === false)
         incremented[idx] = true
         setLeftIdentityTracking(incremented)
         sendToStatSheet(0, incremented)
       }
     } else {
       if (status) {
-        let incremented = rightIdentityTracking.slice()
-        let idx = incremented.findIndex(x => x === true)
+        const incremented = rightIdentityTracking.slice()
+        const idx = incremented.findIndex(x => x === true)
         incremented[idx] = false
         setRightIdentityTracking(incremented)
         sendToStatSheet(1, incremented)
       } else {
-        let incremented = rightIdentityTracking.slice()
-        let idx = incremented.findLastIndex(x => x === false)
+        const incremented = rightIdentityTracking.slice()
+        const idx = incremented.findLastIndex(x => x === false)
         incremented[idx] = true
         setRightIdentityTracking(incremented)
         sendToStatSheet(1, incremented)

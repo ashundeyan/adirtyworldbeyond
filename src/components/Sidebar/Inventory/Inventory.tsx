@@ -25,7 +25,7 @@ export function Inventory({ updateSheetInven, playerInven }: InventoryProps) {
     }, [itemPendingChanges?.itemName])
 
     function addNewItem() {
-        let updatedInven = [...playerInven]
+        const updatedInven = [...playerInven]
         updatedInven.push({ itemName: "New Item" })
         updateSheetInven(updatedInven)
     }
@@ -48,7 +48,7 @@ export function Inventory({ updateSheetInven, playerInven }: InventoryProps) {
     }
 
     function saveEdits() {
-        let updatedInven = [...playerInven]
+        const updatedInven = [...playerInven]
         updatedInven[currentItem!] = itemPendingChanges!
         updateSheetInven(updatedInven)
         setViewMode(true)
@@ -61,7 +61,7 @@ export function Inventory({ updateSheetInven, playerInven }: InventoryProps) {
     }
 
     function deleteItem(idx: number) {
-        let updatedInven = [...playerInven]
+        const updatedInven = [...playerInven]
         updatedInven.splice(idx, 1)
         updateSheetInven(updatedInven)
     }

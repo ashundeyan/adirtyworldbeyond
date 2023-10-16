@@ -57,10 +57,10 @@ const ExportedSheetSchema = z.
 
 export function digestSheet(json: string): CharacterSheet | null {
     try {
-        let sheetToCheck = JSON.parse(json)
+        const sheetToCheck = JSON.parse(json)
         let receivedSheet: CharacterSheet;
 
-        let verifiedSheet = ExportedSheetSchema.safeParse(sheetToCheck);
+        const verifiedSheet = ExportedSheetSchema.safeParse(sheetToCheck);
 
         if (verifiedSheet.success) {
             console.log("worked")

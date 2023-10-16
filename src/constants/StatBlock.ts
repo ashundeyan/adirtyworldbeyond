@@ -40,16 +40,16 @@ export const generateStatBlocks = () => {
     ]
 
     const identityResolver = (identityPair: TIdentityPair) => {
-        let leftIdentity = identities.find(x => x.id === identityPair.leftIdentity)
-        let rightIdentity = identities.find(x => x.id === identityPair.rightIdentity)
+        const leftIdentity = identities.find(x => x.id === identityPair.leftIdentity)
+        const rightIdentity = identities.find(x => x.id === identityPair.rightIdentity)
         return { leftIdentity: leftIdentity, rightIdentity: rightIdentity }
     }
 
     const qualityResolver = (qualityGroup: TQualityPair[]) => {
-        let resolvedQualityGroups = []
+        const resolvedQualityGroups = []
         for (let i = 0; i < qualityGroup.length; i++) {
-            let leftQuality = qualities.find(x => x.id === qualityGroup[i].leftQuality)
-            let rightQuality = qualities.find(x => x.id === qualityGroup[i].rightQuality)
+            const leftQuality = qualities.find(x => x.id === qualityGroup[i].leftQuality)
+            const rightQuality = qualities.find(x => x.id === qualityGroup[i].rightQuality)
             resolvedQualityGroups.push(
                 { leftQuality: leftQuality, rightQuality: rightQuality }
             )

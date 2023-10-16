@@ -23,7 +23,7 @@ export function QualityBlock({ mapFn, leftQuality, rightQuality, updateSheetStat
   const [overlapping, setOverlapping] = useState<boolean>(false)
 
   function isQualityProfessional(id: number) {
-    let affected: number[] = []
+    const affected: number[] = []
 
     affected.push(professionQualities.first)
     affected.push(professionQualities.second)
@@ -58,12 +58,12 @@ export function QualityBlock({ mapFn, leftQuality, rightQuality, updateSheetStat
   }
 
   function hasOverlap(arr1: boolean[], arr2: boolean[]) {
-    let arr1ToNumeric: number[] = arr1.map(x => x ? 1 : 0)
-    let arr2ToNumeric: number[] = arr2.map(x => x ? 1 : 0)
-    let offset = 2;
+    const arr1ToNumeric: number[] = arr1.map(x => x ? 1 : 0)
+    const arr2ToNumeric: number[] = arr2.map(x => x ? 1 : 0)
+    const offset = 2;
 
-    let arr1Segment = arr1ToNumeric.slice(offset)
-    let arr2Segment = arr2ToNumeric.slice(0, -offset)
+    const arr1Segment = arr1ToNumeric.slice(offset)
+    const arr2Segment = arr2ToNumeric.slice(0, -offset)
 
     for (let i = 0; i < arr1.length; i++) {
       if (arr1Segment[i] === 1 && arr2Segment[i] === 1) {
@@ -87,9 +87,9 @@ export function QualityBlock({ mapFn, leftQuality, rightQuality, updateSheetStat
 
       for (let i = 0; i < leftQualityTracking.length - 1; i++) {
         if (leftQualityTracking[i] === true && leftQualityTracking[i + 1] === false) {
-          let skip1 = i
-          let skip2 = i + 1
-          let arr = new Array<boolean>(5).fill(true);
+          const skip1 = i
+          const skip2 = i + 1
+          const arr = new Array<boolean>(5).fill(true);
           arr[skip1] = false
           arr[skip2] = false
           setTrackLeftQualityDisabled(arr)
@@ -108,9 +108,9 @@ export function QualityBlock({ mapFn, leftQuality, rightQuality, updateSheetStat
       }
       for (let i = 0; i < rightQualityTracking.length - 1; i++) {
         if (rightQualityTracking[i] === false && rightQualityTracking[i + 1] === true) {
-          let skip1 = i;
-          let skip2 = i + 1
-          let arr = new Array<boolean>(5).fill(true);
+          const skip1 = i;
+          const skip2 = i + 1
+          const arr = new Array<boolean>(5).fill(true);
           arr[skip1] = false
           arr[skip2] = false
           setTrackRightQualityDisabled(arr)
@@ -138,10 +138,10 @@ export function QualityBlock({ mapFn, leftQuality, rightQuality, updateSheetStat
 
   function sendToStatSheet(position: number, arr: boolean[]) {
     if (position === 0) {
-      let updatedValue = arr.slice().filter(x => x).length;
+      const updatedValue = arr.slice().filter(x => x).length;
       updateSheetStat(StatTypeLookup.QUALITY, leftQuality?.id ?? -1, updatedValue)
     } else {
-      let updatedValue = arr.slice().filter(x => x).length;
+      const updatedValue = arr.slice().filter(x => x).length;
       updateSheetStat(StatTypeLookup.QUALITY, rightQuality?.id ?? -1, updatedValue)
     }
     return
@@ -150,28 +150,28 @@ export function QualityBlock({ mapFn, leftQuality, rightQuality, updateSheetStat
   function updateChecked(position: number, status: boolean) {
     if (position === 0) {
       if (status) {
-        let incremented = leftQualityTracking.slice()
-        let idx = incremented.findLastIndex(x => x === true)
+        const incremented = leftQualityTracking.slice()
+        const idx = incremented.findLastIndex(x => x === true)
         incremented[idx] = false
         setLeftQualityTracking(incremented)
         sendToStatSheet(0, incremented)
       } else {
-        let incremented = leftQualityTracking.slice()
-        let idx = incremented.findIndex(x => x === false)
+        const incremented = leftQualityTracking.slice()
+        const idx = incremented.findIndex(x => x === false)
         incremented[idx] = true
         setLeftQualityTracking(incremented)
         sendToStatSheet(0, incremented)
       }
     } else {
       if (status) {
-        let incremented = rightQualityTracking.slice()
-        let idx = incremented.findIndex(x => x === true)
+        const incremented = rightQualityTracking.slice()
+        const idx = incremented.findIndex(x => x === true)
         incremented[idx] = false
         setRightQualityTracking(incremented)
         sendToStatSheet(1, incremented)
       } else {
-        let incremented = rightQualityTracking.slice()
-        let idx = incremented.findLastIndex(x => x === false)
+        const incremented = rightQualityTracking.slice()
+        const idx = incremented.findLastIndex(x => x === false)
         incremented[idx] = true
         setRightQualityTracking(incremented)
         sendToStatSheet(1, incremented)

@@ -1,7 +1,7 @@
 import { CharacterSheet } from "../models/CharacterSheet";
 
 const isValidFilename = (fn: string) => {
-    var regex = /^[0-9a-zA-Z ... ]+$/;
+    const regex = /^[0-9a-zA-Z ... ]+$/;
     return regex.test(fn);
 };
 export function exportSheet(sheet: CharacterSheet) {
@@ -18,7 +18,7 @@ export function exportSheet(sheet: CharacterSheet) {
 
     name += ".json";
 
-    let exporting = JSON.stringify(sheet, null, "\t");
+    const exporting = JSON.stringify(sheet, null, "\t");
     const blob = new Blob([exporting], { type: "application/json" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");

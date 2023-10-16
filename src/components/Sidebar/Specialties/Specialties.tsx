@@ -38,7 +38,7 @@ export function SpecialtiesComponent({ updateSheetSpecialties, playerSpecialties
 
     function addNewSpecialty() {
         if (canAdd) {
-            let updatedSpecialties = [...playerSpecialties]
+            const updatedSpecialties = [...playerSpecialties]
             updatedSpecialties.push({ name: "New Specialty" })
             updateSheetSpecialties(updatedSpecialties)
         }
@@ -62,7 +62,7 @@ export function SpecialtiesComponent({ updateSheetSpecialties, playerSpecialties
     }
 
     function saveEdits() {
-        let updatedSpecialties = [...playerSpecialties]
+        const updatedSpecialties = [...playerSpecialties]
         updatedSpecialties[currentSpecialty!] = specialtyPendingChanges!
         updateSheetSpecialties(updatedSpecialties)
         setViewMode(true)
@@ -75,7 +75,7 @@ export function SpecialtiesComponent({ updateSheetSpecialties, playerSpecialties
     }
 
     function deleteSpecialty(idx: number) {
-        let updatedSpecialties = [...playerSpecialties]
+        const updatedSpecialties = [...playerSpecialties]
         updatedSpecialties.splice(idx, 1)
         updateSheetSpecialties(updatedSpecialties)
     }
