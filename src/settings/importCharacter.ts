@@ -46,7 +46,7 @@ const ExportedSheetSchema = z.
                 name: z.string(),
                 severity: z.number().min(1).max(3),
                 knownBy: z.optional(z.string()),
-                descripition: z.optional(z.string())
+                description: z.optional(z.string())
             }),
             specialties: z.array(z.object({
                 name: z.string(),
