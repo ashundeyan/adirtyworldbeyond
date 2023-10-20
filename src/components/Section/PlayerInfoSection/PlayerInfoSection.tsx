@@ -12,15 +12,19 @@ type PlayerInfoSectionProps = {
   availablePoints: TAvailablePoints
   specialtiesList: string
   secretAndSeverity: string
+  playerWealth: number | undefined
+  updatePlayerWealth: (updatedWealth: number) => void
 }
-export function PlayerInfoSection({ playerInfo, combatPotential, weaponBonus, updatePlayerInfo, availablePoints, specialtiesList, secretAndSeverity }: PlayerInfoSectionProps) {
+export function PlayerInfoSection({ playerInfo, combatPotential, weaponBonus, updatePlayerInfo, availablePoints, specialtiesList, secretAndSeverity, playerWealth, updatePlayerWealth }: PlayerInfoSectionProps) {
 
   const [editMode, setEditMode] = useState<boolean>(false);
   const [currPlayerInfo, setCurrPlayerInfo] = useState<TPlayerInfo>(playerInfo);
+  const [currWealth, setCurrWealth] = useState<number>(playerWealth ?? 0)
 
   useEffect(() => {
     if (playerInfo !== currPlayerInfo) {
       setCurrPlayerInfo(playerInfo);
+      setCurrWealth(playerWealth ?? 0)
     }
   }, [playerInfo]);
 
@@ -55,6 +59,10 @@ export function PlayerInfoSection({ playerInfo, combatPotential, weaponBonus, up
     setCurrPlayerInfo(currInfo)
   }
 
+  function handlePlayerWealthChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setCurrWealth(parseInt(e.target.value))
+  }
+
   function sendUpdatedInfo() {
     const updatedInfo: TPlayerInfo = {
       playerName: currPlayerInfo.playerName,
@@ -62,6 +70,7 @@ export function PlayerInfoSection({ playerInfo, combatPotential, weaponBonus, up
       gameName: currPlayerInfo.gameName,
       profession: currPlayerInfo.profession,
     }
+    updatePlayerWealth(currWealth)
     updatePlayerInfo(updatedInfo)
   }
 
@@ -117,6 +126,19 @@ export function PlayerInfoSection({ playerInfo, combatPotential, weaponBonus, up
               {`${availablePoints.pointsSpent}/${availablePoints.pointPool}`}
             </span>
           </div>
+        </div>
+
+        <div className="player-info-grid-item">
+          <div className="player-info-label">
+            <b>Wealth:</b>
+          </div>
+          <span className="wealth-label">
+            {editMode
+              ? (
+                <input className="form-control reduced-numberbox" type="number" min={0} max={9999} placeholder="Wealth..." value={currWealth} onChange={handlePlayerWealthChange} />
+              )
+              : (playerWealth === undefined || playerWealth === 0 ? "0" : playerWealth.toLocaleString())}
+          </span>
         </div>
 
       </div>
@@ -179,6 +201,7 @@ export function PlayerInfoSection({ playerInfo, combatPotential, weaponBonus, up
         </div>
 
       </div>
+
       <div className="player-section-edit-tab" onClick={() => toggleEditMode()}>
         <i className={(editMode ? "bi bi-check-circle-fill" : "bi bi-pencil-fill") + " player-section-edit-hover"}></i>
       </div>

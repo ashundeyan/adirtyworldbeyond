@@ -44,11 +44,9 @@ export function Sidebar({ updateSheetNotes, updateSheetInven, updateSheetSpecial
             plainFiles: File[];
             filesContent: FileContent<string>[];
         }) => {
-            console.log('success');
             importCharacterSheet(filesContent[0])
         },
         onFilesRejected: () => {
-            console.log('failure')
         }
     })
 

@@ -174,6 +174,12 @@ function App() {
     setCharacterSheet(sheet)
   }
 
+  function updateSheetPlayerWealth(updatedWealth: number) {
+    const sheet = { ...characterSheet }
+    sheet.playerTrackings.wealth = updatedWealth
+    setCharacterSheet(sheet)
+  }
+
   function exportCharacterSheet() {
     exportSheet(characterSheet)
   }
@@ -208,8 +214,6 @@ function App() {
   }
 
   useEffect(() => {
-    console.log("updating!")
-    console.log(characterSheet)
     setCombatPotential(calculateCombatPotential())
     setWeaponBonus(calculateWeaponBonus())
   }, [characterSheet])
@@ -238,6 +242,8 @@ function App() {
               updatePlayerInfo={updateSheetPlayerInfo}
               specialtiesList={generateSpecialtyList()}
               secretAndSeverity={generateSecretAndSeverity()}
+              playerWealth={characterSheet.playerTrackings.wealth}
+              updatePlayerWealth={updateSheetPlayerWealth}
             />
             <Divider color={ContentBgColorsLookup.WHITE} />
             {

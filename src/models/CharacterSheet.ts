@@ -23,6 +23,7 @@ export type TPlayerTrackings = {
     notes: Note[];
     secret: Secret;
     specialties: Specialty[]
+    wealth?: number | undefined
 }
 
 export class CharacterSheet {
@@ -49,6 +50,7 @@ export class CharacterSheet {
             notes: Note[]
             secret: Secret
             specialties: Specialty[]
+            wealth?: number | undefined
         }
     ) {
         this.playerInfo = playerInfo;

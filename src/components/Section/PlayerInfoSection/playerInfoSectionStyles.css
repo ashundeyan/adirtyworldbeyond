@@ -49,6 +49,17 @@
     padding: 1px 5px 1px 5px !important;
 }
 
+.reduced-numberbox {
+    margin: 0;
+    padding: 1px 5px 1px 5px !important;
+}
+
 .player-info-invalid {
     color: red;
+}
+
+.wealth-label {
+    color: rgb(26, 196, 26);
+    width: 100%;
+
 }

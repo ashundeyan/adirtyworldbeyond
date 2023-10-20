@@ -51,7 +51,8 @@ const ExportedSheetSchema = z.
             specialties: z.array(z.object({
                 name: z.string(),
                 description: z.optional(z.string())
-            }))
+            })),
+            wealth: z.optional(z.number().default(0))
         })
     }).strict();
 
@@ -63,16 +64,13 @@ export function digestSheet(json: string): CharacterSheet | null {
         const verifiedSheet = ExportedSheetSchema.safeParse(sheetToCheck);
 
         if (verifiedSheet.success) {
-            console.log("worked")
             receivedSheet = verifiedSheet.data;
             return receivedSheet
         } else {
-            console.log("didn't work")
             return null;
         }
 
     } catch {
-        console.log("something exploded")
         return null
     }
 }
