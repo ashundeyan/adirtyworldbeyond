@@ -7,19 +7,19 @@ export const generateStatBlocks = () => {
 
     const qualities: TStatType[] = [
         { id: 1, name: 'generosity', leftText: "status and resources", rightText: "payoffs and bribes" },
-        { id: 2, name: 'selfishness', leftText: "forgery, graft, embezzlement", rightText: "steals cars, pick locks" },
+        { id: 2, name: 'selfishness', leftText: "steals cars, pick locks", rightText: "forgery, graft, embezzlement" },
         { id: 3, name: 'demonstration', leftText: "education and knowledge", rightText: "quick fixes, jury rigging" },
-        { id: 4, name: 'observation', leftText: "reconstruct a crime scene", rightText: "spot an ambush" },
+        { id: 4, name: 'observation', leftText: "spot an ambush", rightText: "reconstruct a crime scene" },
 
         { id: 5, name: 'courage', leftText: "fair fight, fists", rightText: "fair fight, guns" },
-        { id: 6, name: 'wrath', leftText: "beat on the inferior", rightText: "shoot the unarmed" },
+        { id: 6, name: 'wrath', leftText: "shoot the unarmed", rightText: "beat on the inferior" },
         { id: 7, name: 'endurance', leftText: "marathon run, hold a pin", rightText: "car chase, balancing" },
-        { id: 8, name: 'defiance', leftText: "smash obstacles", rightText: "avoid or escape" },
+        { id: 8, name: 'defiance', leftText: "avoid or escape", rightText: "smash obstacles" },
 
         { id: 9, name: 'purity', leftText: "see someone’s best side", rightText: "persuade through decency" },
-        { id: 10, name: 'corruption', leftText: "comprehend devious motives", rightText: "persuade with sin" },
+        { id: 10, name: 'corruption', leftText: "persuade with sin", rightText: "comprehend devious motives" },
         { id: 11, name: 'honesty', leftText: "find flaws in true statements", rightText: "tell the truth convincingly" },
-        { id: 12, name: 'deceit', leftText: "see through lies", rightText: "tell lies" }
+        { id: 12, name: 'deceit', leftText: "tell lies", rightText: "see through lies" }
     ]
 
     const identities: TStatType[] = [
