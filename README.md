@@ -21,4 +21,8 @@
   - Note: You are awarded a free point of Vigor.
 - Combat Potential = Vigor + Grace + Courage + Wrath + (indicator of bonus from weapon)
   
-_By: Abdul-BA_
+_By: Ashundeyan_
+
+## Contributing:
+As of 3-18-2024, I'm no longer actively maintaining this. Feel free to fork away!
+However, I recognize that the codebase is a bit of a mess (wrote it _very_ fast), so if you'd like to request a feature, or have any questions, feel free to reach out.
